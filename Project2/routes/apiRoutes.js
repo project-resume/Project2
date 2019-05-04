@@ -1,24 +1,49 @@
 var db = require("../models");
 
 module.exports = function(app) {
-  // Get all examples
-  app.get("/api/examples", function(req, res) {
-    db.Example.findAll({}).then(function(dbExamples) {
-      res.json(dbExamples);
+  // Get all jobs
+  app.get("/api/jobposts", function(req, res) {
+    db.Jobs.findAll({}).then(function(dbJobs) {
+      res.json(dbJobs);
     });
   });
 
-  // Create a new example
-  app.post("/api/examples", function(req, res) {
-    db.Example.create(req.body).then(function(dbExample) {
-      res.json(dbExample);
+  // Create a new job
+  app.post("/api/newJob", function(req, res) {
+    db.Job.create({
+      company: DataTypes.STRING,
+      position: DataTypes.STRING,
+      appliedDate: DataTypes.DATE,
+      contactInfo: DataTypes.TEXT,
+      resume: DataTypes.STRING
+    }).then(function(dbJobs) {
+      res.json(dbJobs);
     });
   });
 
-  // Delete an example by id
+  // Delete a job by id
   app.delete("/api/examples/:id", function(req, res) {
-    db.Example.destroy({ where: { id: req.params.id } }).then(function(dbExample) {
-      res.json(dbExample);
+    db.Jobs.destroy({ where: { id: req.params.id } }).then(function(dbJobs) {
+      res.json(dbJobs);
     });
   });
 };
+
+app.put("/api/posts", function (req, res) {
+  // Add code here to update a post using the values in req.body, where the id is equal to
+  // req.body.id and return the result to the user using res.json
+  db.Jobs.update({
+    company: DataTypes.STRING,
+    position: DataTypes.STRING,
+    appliedDate: DataTypes.DATE,
+    contactInfo: DataTypes.TEXT,
+    resume: DataTypes.STRING
+  }, {
+      where: {
+        id: req.body.id
+      }
+    }
+  ).then(function (dbJobs) {
+    res.json(dbJobs);
+  })
+});
