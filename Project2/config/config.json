@@ -2,7 +2,7 @@
   "development": {
     "username": "root",
     "password": "root",
-    "database": "aoolicantsdb",
+    "database": "applicationsdb",
     "host": "localhost",
     "dialect": "mysql"
   },
