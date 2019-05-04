@@ -1,5 +1,7 @@
 # Project2
+
+* Team Member
 Emily Raper
-Anjana
+Anjana Hengaju
 Dmitriy Petrenko
 
