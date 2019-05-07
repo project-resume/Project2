@@ -15,7 +15,11 @@ module.exports = function(app) {
       position: DataTypes.STRING,
       appliedDate: DataTypes.DATE,
       contactInfo: DataTypes.TEXT,
-      resume: DataTypes.STRING
+      resumeLink: DataTypes.STRING,
+      interviewDate: DataTypes.DATE,
+      InterviweeName: DataTypes.STRING,
+      JobOffered: DataTypes.BOOLEAN,
+      comments: DataTypes.TEXT
     }).then(function(dbJobs) {
       res.json(dbJobs);
     });
@@ -37,7 +41,11 @@ app.put("/api/posts", function (req, res) {
     position: DataTypes.STRING,
     appliedDate: DataTypes.DATE,
     contactInfo: DataTypes.TEXT,
-    resume: DataTypes.STRING
+    resumeLink: DataTypes.STRING,
+    interviewDate: DataTypes.DATE,
+    InterviweeName: DataTypes.STRING,
+    JobOffered: DataTypes.BOOLEAN,
+    comments: DataTypes.TEXT
   }, {
       where: {
         id: req.body.id
