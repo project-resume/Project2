@@ -4,7 +4,11 @@ module.exports = function(sequelize, DataTypes) {
     position: DataTypes.STRING,
     appliedDate: DataTypes.DATE,
     contactInfo: DataTypes.TEXT,
-    resume: DataTypes.STRING
+    resumeLink: DataTypes.STRING,
+    interviewDate: DataTypes.DATE,
+    InterviweeName: DataTypes.STRING,
+    JobOffered: DataTypes.BOOLEAN,
+    comments: DataTypes.TEXT
   });
   return Jobs;
 };
